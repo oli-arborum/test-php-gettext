@@ -1,6 +1,10 @@
 <?php
+  // If Zend Framework includes are not configured globally
+  // (i.e. the include_path in php.ini does not contain the library
+  // folder of the Zend Framework installation) add it here locally:
   $dir = dirname(__FILE__);
   set_include_path(get_include_path() . PATH_SEPARATOR . "$dir/zf/library");
+  // (I unpacked the Zend Framework 1.12.9 to zf/ subfolder of my test project's folder.)
 
   require_once( 'Zend/Translate.php' );
 
