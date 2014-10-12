@@ -1,0 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2014 oli-arborum
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHP gettext test\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-12 21:39+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Oliver B. <oli-arborum@users.noreply.github.com>\n"
+"Language-Team: Oliver B. <oli-arborum@users.noreply.github.com>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../index.php:15 ../../../index_gt.php:18 ../../../index_zf.php:52
+msgid "Hello world"
+msgstr "Hallo Welt"
+
+#: ../../../index.php:16 ../../../index_gt.php:19 ../../../index_zf.php:53
+msgid "some more text: umlauts etc."
+msgstr "mehr Text ÄäÖöÜüß"
+
