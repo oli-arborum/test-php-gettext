@@ -23,9 +23,7 @@ A GNU Makefile is supplied in the LC_MESSAGES subdirectory in order to update th
  - ~~`pecl install runkit` or `pecl install channel://pecl.php.net/runkit-0.9`~~ **does not work**!
  - `git clone https://github.com/zenovich/runkit.git`
  - `mv runkit runkit-1.0.4`
- - `cd runkit-1.0.4`
- - `mv package.xml ..`
- - `cd ..`
+ - `mv runkit-1.0.4/package.xml .`
  - `tar cvz --exclude-vcs -f /tmp/runkit-master.tgz .`
  - `sudo pecl install /tmp/runkit-master.tgz`
  - create the file `/etc/php5/mods-available/runkit.ini` with this content:
