@@ -25,7 +25,7 @@ A GNU Makefile is supplied in the LC_MESSAGES subdirectory in order to update th
  - `mv runkit runkit-1.0.4`
  - `mv runkit-1.0.4/package.xml .`
  - `tar cvz --exclude-vcs -f /tmp/runkit-master.tgz .`
- - `sudo pecl install /tmp/runkit-master.tgz`
+ - `sudo pecl install /tmp/runkit-master.tgz` to build and install the extension
  - create the file `/etc/php5/mods-available/runkit.ini` with this content:
  
 ```
@@ -40,6 +40,8 @@ extension=runkit.so
 [runkit]
 runkit.internal_override=1
 ```
+
+ - `sudo php5enmon runkit` to enable runkit extension
  - `sudo service apache2 restart`
 
 ### Links ###
