@@ -20,7 +20,7 @@ A GNU Makefile is supplied in the LC_MESSAGES subdirectory in order to update th
     - PHP runkit: https://github.com/Crack/runkit-windows/blob/master/php_runkit-1.0.4-5e179e978a-5.5-vc11.dll
 
 ### installing runkit under Ubuntu 14.04 LTS ###
- - `pecl install runkit` or `pecl install channel://pecl.php.net/runkit-0.9` **does not work**!
+ - ~~`pecl install runkit` or `pecl install channel://pecl.php.net/runkit-0.9`~~ **does not work**!
  - `git clone https://github.com/zenovich/runkit.git`
  - `mv runkit runkit-1.0.4`
  - `cd runkit-1.0.4`
@@ -29,16 +29,19 @@ A GNU Makefile is supplied in the LC_MESSAGES subdirectory in order to update th
  - `tar cvz --exclude-vcs -f /tmp/runkit-master.tgz .`
  - `sudo pecl install /tmp/runkit-master.tgz`
  - create the file `/etc/php5/mods-available/runkit.ini` with this content:
-   `
-   ; configuration for php runkit module
-   ; priority=20
-   extension=runkit.so
-   `
- - add these lines to `/etc/php5/apache2/php.ini`:
-   `
-   [runkit]
-   runkit.internal_override=1
-   `
+ 
+```
+; configuration for php runkit module
+; priority=20
+extension=runkit.so
+```
+
+  - add these lines to `/etc/php5/apache2/php.ini`:
+
+```
+[runkit]
+runkit.internal_override=1
+```
  - `sudo service apache2 restart`
 
 ### Links ###
