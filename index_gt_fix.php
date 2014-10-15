@@ -9,7 +9,6 @@
 
 
   $lang = "de_DE.UTF-8"; // "de_DE" will not work under Linux, must be same as generated locale!
-  $dir = dirname(__FILE__);
   if(!defined('LC_MESSAGES')) { // note that under Windows LC_MESSAGES is not defined!
     define('LC_MESSAGES', 6);
   }  
