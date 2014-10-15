@@ -52,4 +52,6 @@ runkit.internal_override=1
  - http://stackoverflow.com/questions/10486857/php-gettext-no-translation
  - http://stackoverflow.com/questions/6925736/how-to-redefine-a-function-in-php
  - http://framework.zend.com/manual/1.12/de/zend.translate.html
+ - https://launchpad.net/php-gettext/
  - http://blog.ghost3k.net/articles/php/11/gettext-caching-in-php
+
