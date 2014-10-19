@@ -2,7 +2,8 @@ test-php-gettext
 ================
 
 Simple test code to catch the sometimes strange behaviour of PHP's gettext module
-and to evaluate alternatives (currently only Zend Framework's Zend_Translate class).
+and to evaluate alternatives (currently only Zend Framework's Zend_Translate class
+and the PHP implementation of gettext).
 
 A GNU Makefile is supplied in the LC_MESSAGES subdirectory in order to update the
 .po file from changed sources and to create the .mo file from the .po file.
@@ -43,6 +44,14 @@ runkit.internal_override=1
 
  - `sudo php5enmon runkit` to enable runkit extension
  - `sudo service apache2 restart`
+
+### Performance ###
+I added simple performance tests to all examples. Results on my machine (GNU/Linux) for 1000000 calls:
+ - plain ext_gettext: 0.26s
+ - ext_gettext with workaround and runkit usage: 1.4s
+ - PHP implementation of gettext: 0.57s
+ - Zend_Translate class: 3.1s
+ - Zend_Translate class with Zend_Cache: 3.1s
 
 ### Links ###
  - http://stackoverflow.com/questions/1473207/php-gettext-on-windows
