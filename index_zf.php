@@ -11,11 +11,18 @@
 
   $err = "";
 
-  if( isset($_GET['cache']) and ($_GET['cache'] == 1) ) { // NOTE: does not work (yet)!!!
+  if( isset($_GET['cache']) and ($_GET['cache'] == 1) ) {
     require_once( 'Zend/Cache.php' );
     try {
       $cache = Zend_Cache::factory('Core', 'File', 
-        array('lifetime'=>10, 'automatic_serialization' => true), array('cache_dir'=>'./cache') );
+        array(
+          'lifetime' => 10,
+          'automatic_serialization' => true
+        ),
+        array(
+          'cache_dir' => './cache'
+        )
+      );
       Zend_Translate::setCache($cache);
     } catch( Exception $e ) {
       $err .= $e->getMessage() . "\n";
