@@ -7,6 +7,20 @@
   // (I unpacked the Zend Framework 1.12.9 to zf/ subfolder of my test project's folder.)
 
   require_once( 'Zend/Translate.php' );
+  require_once "test_perf.inc.php";
+
+  $err = "";
+
+  if( isset($_GET['cache']) and ($_GET['cache'] == 1) ) { // NOTE: does not work (yet)!!!
+    require_once( 'Zend/Cache.php' );
+    try {
+      $cache = Zend_Cache::factory('Core', 'File', 
+        array('lifetime'=>10, 'automatic_serialization' => true), array('cache_dir'=>'./cache') );
+      Zend_Translate::setCache($cache);
+    } catch( Exception $e ) {
+      $err .= $e->getMessage() . "\n";
+    }
+  }
 
   try {
     $translate = new Zend_Translate(
@@ -18,7 +32,7 @@
       )
     );
   } catch( Exception $e ) {
-    $err = "error: " . $e->getMessage();
+    $err .= "error: " . $e->getMessage() . "\n";
   }
   if( !isset($translate) ) {
     try {
@@ -31,7 +45,7 @@
         )
       );
     } catch( Exception $e ) {
-      $err = "error: " . $e->getMessage();
+      $err .= $e->getMessage() . "\n";
     }
   }
 ?>
@@ -49,11 +63,18 @@
  <?php echo date('r'); ?>
  <pre>
  <?php
-   if( isset($err) ) echo "$err\n";
+   if( $err != "" ) echo "error: $err";
    $messageIds = $translate->getMessageIds();
    print_r($messageIds);
  ?>
  </pre>
+ <?php
+   if( isset($_GET['testperf']) and ($_GET['testperf'] == 1) ) {
+     $calls = 1000000;
+     $duration = test_perf( $calls, function() { global $translate; $foo = $translate->_("Hello world"); } );
+     echo "<p><b>Performance:</b> $calls calls took $duration s</p>";
+   }
+ ?>
 </body>
 </html>
 

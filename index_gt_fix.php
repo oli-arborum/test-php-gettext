@@ -20,6 +20,8 @@
 
   // replace the _() function with our __() function
   runkit_function_redefine( '_', '$str', 'return __($str);' );
+
+  require_once "test_perf.inc.php";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
@@ -32,6 +34,13 @@
  <p><?php echo _("Hello world"); ?></p>
  <p><?php echo _("some more text: umlauts etc."); ?></p>
  <?php echo date('r'); ?>
+ <?php
+   if( isset($_GET['testperf']) and ($_GET['testperf'] == 1) ) {
+     $calls = 1000000;
+     $duration = test_perf( $calls, function() { $foo = _("Hello world"); } );
+     echo "<p><b>Performance:</b> $calls calls took $duration s</p>";
+   }
+ ?>
 </body>
 </html>
 
